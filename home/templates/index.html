@@ -1,14 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ilk django projem</title>
-</head>
-<body>
-<h1>Hosgeldin Django Hayatima</h1>
-<h3>Karabuk Universitesi Bilgisayar Muhendisligi</h3>
-<p>
-    {{ text }}
-</p>
-</body>
-</html>
+{% extends "homebase.html" %}
+{% block title %}{{ setting.title }} {% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+
+
+
+    {% block header %}
+        {% include 'header.html' %}
+        <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+    {% endblock %}
+
+    {% block slider %}
+        {% include 'slider.html' %}
+     {% endblock %}
+
+    {% block content %}
+        {% include 'content.html' %}
+     {% endblock %}
+
+    {% include 'footer.html' %}
+    {% block footer %} {% endblock %}

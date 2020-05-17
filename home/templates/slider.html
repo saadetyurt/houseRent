@@ -1,0 +1,19 @@
+
+<section class="home-slider owl-carousel">
+    {% for rs in sliderdata %}
+        <div class="slider-item" style= "background-image:url({{ rs.image.url }});">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text align-items-md-end align-items-center justify-content-end">
+                    <div class="col-md-6 text p-4 ftco-animate">
+                        <h1 class="mb-3">{{ rs.title }}</h1>
+                        <span class="location d-block mb-3"><i class="icon-my_location"></i>{{ rs.address }}</span>
+                        <p>{{rs.description}}</p>
+                        <span class="price">{{ rs.price }}</span>
+                        <a href="/house/{{ rs.id }}/{{ rs.slug }}" class="btn-custom p-3 px-4 bg-primary">Ev Detaylarını Göster <span class="icon-plus ml-1"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</section>

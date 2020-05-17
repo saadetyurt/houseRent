@@ -1,0 +1,80 @@
+{% extends "homebase.html" %}
+{% block title %}{{ setting.title }} {% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+
+
+
+{% block header %}
+    {% include 'header.html' %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
+
+
+{% block content %}
+    <div class="hero-wrap" style="background-image: url('../static/images/bg_1.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Contact</span></p>
+                    <h1 class="mb-3 bread">İletişim</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ftco-section contact-section bg-light">
+        <div class="container">
+            <div class="row d-flex mb-5 contact-info">
+                <div class="col-md-12 mb-4">
+                    <h2 class="h3">Contact Information</h2>
+                </div>
+                <div class="w-100"></div>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-white p-4">
+                        <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-white p-4">
+                        <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-white p-4">
+                        <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-white p-4">
+                        <p><span>Website</span> <a href="#">yoursite.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row block-9">
+                <div class="col-md-6 order-md-last d-flex">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{message.tags}}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+
+                <div class="col-md-6 d-flex">
+                    <form action="" class="bg-white p-5 contact-form" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input class="btn-success" type="submit" value="SEND FORM">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% include 'footer.html' %}
+{% block footer %} {% endblock %}

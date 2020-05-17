@@ -1,0 +1,143 @@
+{% extends "homebase.html" %}
+{% block title %}{{ setting.company }} {% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+
+
+
+    {% block header %}
+        {% include 'header.html' %}
+        <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+    {% endblock %}
+
+
+
+    {% block content %}
+<div class="hero-wrap" style="background-image: url('../static/images/bg_1.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Anasayfa</a></span> <span>About</span></p>
+            <h1 class="mb-3 bread">Hakkımızda</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section ftc-no-pb">
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../static/images/about.jpg);">
+						<a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+							<span class="icon-play"></span>
+						</a>
+					</div>
+					<div class="col-md-7 wrap-about pb-md-5 ftco-animate">
+	          <div class="heading-section heading-section-wo-line mb-5 pl-md-5">
+	          	<div class="pl-md-5 ml-md-5">
+		          	<span class="subheading">Company Overview</span>
+		            <h2 class="mb-4">Learned about the Law</h2>
+	            </div>
+	          </div>
+	          <div class="pl-md-5 ml-md-5 mb-5">
+                  {{ setting.aboutus|safe }}
+
+							</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+    <section class="ftco-section testimony-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 ftco-animate">
+          	<div class="row ftco-animate">
+		          <div class="col-md-12">
+		            <div class="carousel-testimony owl-carousel ftco-owl">
+		              <div class="item">
+		                <div class="testimony-wrap py-4 pb-5">
+		                  <div class="user-img mb-4" style="background-image: url(../static/images/person_1.jpg)">
+		                    <span class="quote d-flex align-items-center justify-content-center">
+		                      <i class="icon-quote-left"></i>
+		                    </span>
+		                  </div>
+		                  <div class="text text-center">
+		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Clients</span>
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="item">
+		                <div class="testimony-wrap py-4 pb-5">
+		                  <div class="user-img mb-4" style="background-image: url(../static/images/person_2.jpg)">
+		                    <span class="quote d-flex align-items-center justify-content-center">
+		                      <i class="icon-quote-left"></i>
+		                    </span>
+		                  </div>
+		                  <div class="text text-center">
+		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Agent</span>
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="item">
+		                <div class="testimony-wrap py-4 pb-5">
+		                  <div class="user-img mb-4" style="background-image: url(../static/images/person_3.jpg)">
+		                    <span class="quote d-flex align-items-center justify-content-center">
+		                      <i class="icon-quote-left"></i>
+		                    </span>
+		                  </div>
+		                  <div class="text text-center">
+		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Client</span>
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="item">
+		                <div class="testimony-wrap py-4 pb-5">
+		                  <div class="user-img mb-4" style="background-image: url(../static/images/person_1.jpg)">
+		                    <span class="quote d-flex align-items-center justify-content-center">
+		                      <i class="icon-quote-left"></i>
+		                    </span>
+		                  </div>
+		                  <div class="text text-center">
+		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Client</span>
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="item">
+		                <div class="testimony-wrap py-4 pb-5">
+		                  <div class="user-img mb-4" style="background-image: url(../static/images/person_1.jpg)">
+		                    <span class="quote d-flex align-items-center justify-content-center">
+		                      <i class="icon-quote-left"></i>
+		                    </span>
+		                  </div>
+		                  <div class="text text-center">
+		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Client</span>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+     {% endblock %}
+
+    {% include 'footer.html' %}
+    {% block footer %} {% endblock %}

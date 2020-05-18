@@ -3,7 +3,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from home.models import Setting
 from home.models import Setting, ContactFormu, ContactFormMessage
 from house.models import Category, House
 
@@ -22,13 +21,22 @@ def index(request):
 
 def hakkimizda(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting, 'page':'hakkimizda'}
+    category = Category.objects.all()
+
+    context = {'setting': setting,
+               'category': category,
+               'page':'hakkimizda'}
     return render(request, 'hakkimizda.html', context)
 
 def referanslar(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting, 'page':'referanslar'}
+    category = Category.objects.all()
+
+    context = {'setting': setting,
+               'category': category,
+               'page':'referanslar'}
     return render(request, 'referanslar.html', context)
+
 
 def iletisim(request):
     category = Category.objects.all()
@@ -48,3 +56,13 @@ def iletisim(request):
     form = ContactFormu()
     context = {'setting': setting, 'category': category, 'form': form}
     return render(request, 'iletisim.html', context)
+
+def category_houses(request, id,slug):
+    category = Category.objects.all()
+    categorydata = Category.objects.get(pk=id)
+    houses = House.objects.filter(category_id=id)
+    context = {'houses' : houses,
+               'categorydata': categorydata,
+               'category': category
+               }
+    return render(request, 'evler.html', context)

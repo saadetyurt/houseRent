@@ -11,7 +11,10 @@ from house.models import Category, House
 def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = House.objects.all()[:6]
+    category = Category.objects.all()
+
     context = {'setting': setting,
+               'category': category,
                'page':'home',
                'sliderdata': sliderdata}
     return render(request, 'index.html', context)

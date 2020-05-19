@@ -11,11 +11,16 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = House.objects.all()[:6]
     category = Category.objects.all()
+    dayhouses = House.objects.all()[:4]
+    randomhouses = House.objects.all().order_by('?')[:4]
 
     context = {'setting': setting,
                'category': category,
                'page':'home',
-               'sliderdata': sliderdata}
+               'sliderdata': sliderdata,
+               'dayhouses': dayhouses,
+               'randomhouses': randomhouses
+               }
     return render(request, 'index.html', context)
 
 

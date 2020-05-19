@@ -1,0 +1,66 @@
+{% extends "homebase.html" %}
+{% block title %}{{ house.company }} {% endblock %}
+{% block keywords %}{{ house.keywords }}{% endblock %}
+{% block description %}{{ house.description }}{% endblock %}
+
+
+
+{% block header %}
+    {% include 'header.html' %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="hero-wrap" style="background-image: url('../static/images/bg_1.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Anasayfa</a></span>
+                    <h1 class="mb-3 bread">Ev Detayları</h1><a href="/category/{{ house.category_id }}/{{ house.category.slug }}">{{ house.category }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-12 ftco-animate">
+                            <div class="single-slider owl-carousel">
+                                <div class="item">
+                                    <div class="properties-img" style="background-image: url({{ house.image.url }});"></div>
+                                </div>
+                                {% for rs in images %}
+                                <div class="item">
+                                    <div class="properties-img" style="background-image: url({{ rs.image.url }});"></div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 Properties-single mt-4 mb-5 ftco-animate">
+                            <h2>{{house.title}}</h2>
+                            <p class="rate mb-4">
+                                <span class="loc"><a href="#"><i class="icon-map"></i> {{house.address}}</a></span>
+                            </p>
+                            <p>{{ house.detail |safe}}
+                            <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+
+{% include 'footer.html' %}
+{% block footer %} {% endblock %}

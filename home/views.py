@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from home.models import Setting, ContactFormu, ContactFormMessage
-from house.models import Category, House
+from house.models import Category, House, Images
 
 
 def index(request):
@@ -71,3 +71,14 @@ def category_houses(request, id,slug):
                'category': category
                }
     return render(request, 'evler.html', context)
+
+
+def house_detail(request, id, slug):
+    category = Category.objects.all()
+    house = House.objects.get(pk=id)
+    images = Images.objects.filter(house_id=id)
+    context = {'house': house,
+                'category': category,
+               'images' : images,
+               }
+    return render(request, 'house_detail.html', context)

@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="103a3522-97e7-49ec-841d-55b92a395be4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/home/templates/house_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/apt-d1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/apt-d2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mustakil.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/house/migrations/0013_comment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/house/migrations/0014_auto_20200519_2123.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/house/migrations/0015_auto_20200520_0507.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/house/migrations/0016_auto_20200520_2344.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/house_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/house_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProject1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myProject1/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/house/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/house/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/house/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/house/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,20 +46,6 @@
         <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="house_category: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="house_house: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -150,6 +139,7 @@
       <workItem from="1589578901949" duration="8462000" />
       <workItem from="1589634834035" duration="19784000" />
       <workItem from="1589724007405" duration="46448000" />
+      <workItem from="1589901942822" duration="22199000" />
     </task>
     <task id="LOCAL-00001" summary="14. video bitti slider ayarlarını statik olarak çektim ve adminde düzenlemeler yaptım">
       <created>1589686516510</created>
@@ -216,10 +206,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589319791204" />
-    <state x="379" y="10" key="CommitChangelistDialog2" timestamp="1589850459169">
+    <state x="379" y="10" key="CommitChangelistDialog2" timestamp="1589860613312">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="379" y="10" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589850459169" />
+    <state x="379" y="10" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589860613312" />
     <state x="549" y="169" key="FileChooserDialogImpl" timestamp="1589319780699">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -228,14 +218,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1589212986205" />
-    <state x="414" y="116" key="Vcs.Push.Dialog.v2" timestamp="1589850462887">
+    <state x="414" y="116" key="Vcs.Push.Dialog.v2" timestamp="1589860616058">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="414" y="116" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589850462887" />
-    <state x="477" y="239" key="com.intellij.ide.util.TipDialog" timestamp="1589724008342">
+    <state x="414" y="116" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1589860616058" />
+    <state x="477" y="239" key="com.intellij.ide.util.TipDialog" timestamp="1589902440357">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="477" y="239" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1589724008342" />
+    <state x="477" y="239" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1589902440357" />
     <state x="431" y="145" key="search.everywhere.popup" timestamp="1589840308575">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

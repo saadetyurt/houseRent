@@ -36,11 +36,10 @@
                                     <div class="properties-img" style="background-image: url({{ house.image.url }});"></div>
                                 </div>
                                 {% for rs in images %}
-                                <div class="item">
-                                    <div class="properties-img" style="background-image: url({{ rs.image.url }});"></div>
-                                </div>
+                                    <div class="item">
+                                        <div class="properties-img" style="background-image: url({{ rs.image.url }});"></div>
+                                    </div>
                                 {% endfor %}
-
                             </div>
                         </div>
                         <div class="col-md-12 Properties-single mt-4 mb-5 ftco-animate">
@@ -51,11 +50,68 @@
                             <p>{{ house.detail |safe}}
                             <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
                         </div>
-
-
                     </div>
                 </div>
+
+                <div class="col-lg-4">
+                    <h3>Yorumlar</h3>
+                    {% for rs in comment %}
+                    <ul class="comment-list">
+                        <li class="comment">
+                            <div class="comment-body">
+                                <h3>{{ user.first.name }}</h3>
+                                <div class="fa fa-clock-o">{{ rs.create_at }}</div>
+                                <p>{{ rs.comment }}<p><a href="#" class="reply">Reply</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                    {% endfor %}
+                </div>
+
             </div>
+        </div>
+        <div class="comment-form-wrap pt-5">
+            <h3 class="mb-5">Yorum Bırakın :)</h3>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert-alert-{{ message.tags }}" roles="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form class ="review-form" action="/house/addcomment/{{ house.id }}" method="post">
+                {% csrf_token %}
+                <div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" class="form-control" name="subject" id="id_subject" placeholder="Konu">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Message</label>
+                        <textarea type="text"  class="form-control" name="comment" id="id_comment" cols="30" rows="10" placeholder="Görüşünüz"></textarea>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Your Rating: <sup>*</sup></label>
+                        <div class="controls">
+                            <input type="radio" id="star5" name="rate" value="5"/> <label for="star5"></label>
+                            <input type="radio" id="star4" name="rate" value="4"/> <label for="star4"></label>
+                            <input type="radio" id="star3" name="rate" value="3"/> <label for="star3"></label>
+                            <input type="radio" id="star2" name="rate" value="2"/> <label for="star2"></label>
+                            <input type="radio" id="star1" name="rate" value="1"/> <label for="star1"></label>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        {% if user.id is not None %}
+                            <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                        {% else %}
+                            Yorum eklemek için <a href ="/login">Login</a> olunuz!
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
+        </div>
         </div>
     </section>
 

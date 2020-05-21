@@ -1,3 +1,5 @@
+import json
+from ckeditor_uploader.forms import SearchForm
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -87,3 +89,17 @@ def house_detail(request, id, slug):
                'contenthouses': contenthouses
                }
     return render(request, 'house_detail.html', context)
+
+def house_search(request):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            category = Category.objects.all()
+            query = form.cleaned_data['query']
+            houses = House.objects.filter(title__icontains=query)
+            context = {
+                'category': category,
+                'houses': houses,
+            }
+            return render(request, 'house_search.html', context)
+    return HttpResponseRedirect('/')

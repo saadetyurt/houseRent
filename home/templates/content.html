@@ -1,48 +1,45 @@
-<div class="col-md-12 search-wrap">
-    <h2 class="heading h5 d-flex align-items-center pr-4"><span class="ion-ios-search mr-3"></span> Search Property</h2>
 
-</div>
 
-  <section class="ftco-section ftco-properties">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Recent Posts</span>
-            <h2 class="mb-4">Recent Properties</h2>
-          </div>
+<section class="ftco-section ftco-properties">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">Recent Posts</span>
+                <h2 class="mb-4">Recent Properties</h2>
+            </div>
         </div>
 
-    		<div class="row">
-    			<div class="col-md-12">
-    				<div class="properties-slider owl-carousel ftco-animate">
-                         {% for rs in dayhouses %}
-    					<div class="item">
-		    				<div class="properties">
-		    					<a href="/house/{{ rs.id }}/{{ rs.slug }}" class="img d-flex justify-content-center align-items-center" style="background-image: url({{ rs.image.url }});">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-		    							<span class="icon-search2"></span>
-		    						</div>
-		    					</a>
-		    					<div class="text p-3">
-		    						<span class="status sale">{{ rs.keywords }}</span>
-		    						<div class="d-flex">
-		    							<div class="one">
-				    						<h3><a href="#">{{ rs.title }}</a></h3>
-				    						<p>{{ rs.detail |safe }}</p>
-			    						</div>
-			    						<div class="two">
-			    							<span class="price">{{ rs.price }}</span>
-		    							</div>
-		    						</div>
-		    					</div>
-		    				</div>
-	    				</div>
-                        {% endfor %}
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="properties-slider owl-carousel ftco-animate">
+                    {% for rs in dayhouses %}
+                        <div class="item">
+                            <div class="properties">
+                                <a href="/house/{{ rs.id }}/{{ rs.slug }}" class="img d-flex justify-content-center align-items-center" style="background-image: url({{ rs.image.url }});">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <span class="icon-search2"></span>
+                                    </div>
+                                </a>
+                                <div class="text p-3">
+                                    <span class="status sale">{{ rs.keywords }}</span>
+                                    <div class="d-flex">
+                                        <div class="one">
+                                            <h3><a href="#">{{ rs.title }}</a></h3>
+                                            <p>{{ rs.detail |safe }}</p>
+                                        </div>
+                                        <div class="two">
+                                            <span class="price">{{ rs.price }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <section class="ftco-section bg-light">
@@ -54,9 +51,9 @@
             </div>
         </div>
     </div>
-        <div class="container-fluid">
-            <div class="row">
-                {% for rs in randomhouses %}
+    <div class="container-fluid">
+        <div class="row">
+            {% for rs in randomhouses %}
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="properties">
                         <a href="/house/{{ rs.id }}/{{ rs.slug }}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ rs.image.url }} );">
@@ -78,102 +75,102 @@
                             <p>{{ rs.description }}</p>
                             <hr>
                             <p class="bottom-area d-flex">
-                                <div class ="house-btns">
-                                    <button><a href="/house/{{ rs.id }}"><i class="primary-btn add-to-cart"></i>Rezervasyon</a></button>
-                              </div>
+                            <div class ="house-btns">
+                                <button><a href="/house/{{ rs.id }}"><i class="primary-btn add-to-cart"></i>Rezervasyon</a></button>
+                            </div>
                             </p>
                         </div>
                     </div>
                 </div>
-               {% endfor %}
-            </div>
+            {% endfor %}
         </div>
+    </div>
 
 </section>
 
 
-    <section class="ftco-section testimony-section bg-light">
-      <div class="container">
+<section class="ftco-section testimony-section bg-light">
+    <div class="container">
         <div class="row justify-content-center">
-          <div class="col-md-8 ftco-animate">
-          	<div class="row ftco-animate">
-		          <div class="col-md-12">
-		            <div class="carousel-testimony owl-carousel ftco-owl">
-		              <div class="item">
-		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(../static/images/person_1.jpg)">
+            <div class="col-md-8 ftco-animate">
+                <div class="row ftco-animate">
+                    <div class="col-md-12">
+                        <div class="carousel-testimony owl-carousel ftco-owl">
+                            <div class="item">
+                                <div class="testimony-wrap py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(../static/images/person_1.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
-		                  </div>
-		                  <div class="text text-center">
-		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Clients</span>
-		                  </div>
-		                </div>
-		              </div>
-		              <div class="item">
-		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(../static/images/person_2.jpg)">
+                                    </div>
+                                    <div class="text text-center">
+                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Clients</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(../static/images/person_2.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
-		                  </div>
-		                  <div class="text text-center">
-		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Agent</span>
-		                  </div>
-		                </div>
-		              </div>
-		              <div class="item">
-		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(../static/images/person_3.jpg)">
+                                    </div>
+                                    <div class="text text-center">
+                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Agent</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(../static/images/person_3.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
-		                  </div>
-		                  <div class="text text-center">
-		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Client</span>
-		                  </div>
-		                </div>
-		              </div>
-		              <div class="item">
-		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(../static/images/person_1.jpg)">
+                                    </div>
+                                    <div class="text text-center">
+                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Client</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(../static/images/person_1.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
-		                  </div>
-		                  <div class="text text-center">
-		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Client</span>
-		                  </div>
-		                </div>
-		              </div>
-		              <div class="item">
-		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(../static/images/person_1.jpg)">
+                                    </div>
+                                    <div class="text text-center">
+                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Client</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(../static/images/person_1.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
-		                  </div>
-		                  <div class="text text-center">
-		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Client</span>
-		                  </div>
-		                </div>
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-          </div>
+                                    </div>
+                                    <div class="text text-center">
+                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Client</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 

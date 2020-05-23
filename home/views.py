@@ -1,10 +1,12 @@
 import json
-from ckeditor_uploader.forms import SearchForm
+
 from django.contrib import messages
+from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
+from home.forms import SearchForm
 from home.models import Setting, ContactFormu, ContactFormMessage
 from house.models import Category, House, Images, Comment
 
@@ -103,3 +105,41 @@ def house_search(request):
             }
             return render(request, 'house_search.html', context)
     return HttpResponseRedirect('/')
+
+def house_search_auto(request):
+    if request.is_ajax():
+        q = request.GET.get('term', '')
+        house = House.objects.filter(title__icontains=q)
+        results = []
+        for rs in house:
+            house_json = {}
+            house_json = rs.title
+            results.append(house_json)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)
+
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect('/')
+        else:
+            messages.warning(request, "Login Hatası ! Kullanıcı adı ya da şifre yanlış")
+            return HttpResponseRedirect('/login')
+
+    category = Category.objects.all()
+    context = {
+        'category': category,
+    }
+    return render(request, 'login.html', context)

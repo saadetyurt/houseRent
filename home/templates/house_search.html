@@ -5,20 +5,20 @@
 
 
 
-    {% block header %}
-        {% include 'header.html' %}
-        <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
-    {% endblock %}
+{% block header %}
+    {% include 'header.html' %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
 
 
 {% block body %}
 
 
-        <!-- bradcam_area_start -->
-        <div class="bradcam_area breadcam_bg overlay2">
-            <h3>Search</h3>
-        </div>
-        <!-- bradcam_area_end -->
+    <!-- bradcam_area_start -->
+    <div class="bradcam_area breadcam_bg overlay2">
+        <h3>Search</h3>
+    </div>
+    <!-- bradcam_area_end -->
 
     <!-- about_area_start -->
     <div class="about_area">
@@ -31,11 +31,11 @@
                         <th>Category</th>
                     </tr>
                     {% for rs in houses %}
-                    <tr>
-                        <td><a href="/house/{{ rs.id }}/{{ rs.slug }}"><img height="100" src="{{ rs.image.url }}"  style="..." alt=""></a></td>
-                        <td><h4 class="house-name"><a href="/house/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h4></td>
-                        <td><a href="/category/{{ rs.category.id }}/{{ rs.category.slug }}">{{ rs.category }}</a></td>
-                    </tr>
+                        <tr>
+                            <td><a href="/house/{{ rs.id }}/{{ rs.slug }}"><img height="100" src="{{ rs.image.url }}"  style="..." alt=""></a></td>
+                            <td><h4 class="house-name"><a href="/house/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h4></td>
+                            <td><a href="/category/{{ rs.category.id }}/{{ rs.category.slug }}">{{ rs.category }}</a></td>
+                        </tr>
                     {% endfor %}
                 </table>
             </div>
@@ -48,7 +48,7 @@
 
 
 
-     {% endblock %}
+{% endblock %}
 
-    {% include 'footer.html' %}
-    {% block footer %} {% endblock %}
+{% include 'footer.html' %}
+{% block footer %} {% endblock %}

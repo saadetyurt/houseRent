@@ -13,7 +13,7 @@
                 <div class="col-md-12 search-wrap">
                     <form action="/search/" method="post">
                         {% csrf_token %}
-                        <input name="query" class="input search-input" type="text" placeholder="Ne arıyorsunuz?">
+                        <input name="query" class="input search-input" type="text" id="query" placeholder="Ne arıyorsunuz?">
                         <button class="search-btn"><i class="primary-btn add-to-cart"></i>ARA</button>
                     </form>
                 </div>
@@ -63,10 +63,19 @@
                 <li class="nav-item"><a href="/hakkimizda" class="nav-link">Hakkımızda</a></li>
                 <li class="nav-item"><a href="/evler" class="nav-link">Evler</a></li>
                 <li class="nav-item"><a href="/iletisim" class="nav-link">İletişim</a></li>
-                <li class="nav-item cta"><a href="contact.html" class="nav-link ml-lg-2"><span class="icon-user"></span>
-                    Sign-In</a></li>
-                <li class="nav-item cta cta-colored"><a href="contact.html" class="nav-link"><span
-                        class="icon-pencil"></span> Sign-Up</a></li>
+
+                <li class="nav-item dropdown">
+                    {% if user.id is not None %}
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">{{ user.first_name }}Giriş</a>
+                    {% else %}
+                        <a href="/login/" class="text-uppercase">Login</a> / <a href="/join/" class="text-uppercase">JOIN</a>
+                    {% endif %}
+            <ul class="dropdown-menu">
+                <li><a  href="#">Hesabım</a></li>
+                <li><a  href="#">Yorumlar</a></li>
+                <li><a href="#"><span class="icon-user"></span>Giriş Yap</a></li>
+                <li><a href="/logout/"><span class="icon-pencil"></span> Çıkış Yap</a></li>
+
 
             </ul>
         </div>

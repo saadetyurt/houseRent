@@ -1,0 +1,91 @@
+{% extends "homebase.html" %}
+{% block title %}User Profile{{ profile.user_name}} {% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+
+
+
+{% block header %}
+    {% include 'header.html' %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="hero-wrap" style="background-image: url('../static/images/bg_0.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-left justify-content-left">
+
+                <div class="col-md-9 ftco-animate text-left">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Anasayfa</a></span></p>
+                    <h1 class="mb-3 bread">{{ categorydata.title }}</h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <section class="ftco-section ftco-degree-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 ftco-animate">
+                      {% include "user_panel.html" %}
+                </div>
+
+                <div class="col-lg-8 ftco-animate">
+                    <div class="sidebar-box ftco-animate">
+                   <h3>Kullanıcı Bİlgileri</h3>
+                        <table class="shopping-house-table table">
+
+                            <tr>
+                                <th class="text-left"></th>
+                                <td class="thumb"><img src="{{ profile.image.url }}"></td>
+                            </tr>
+                            <tr>
+                                <th class="text-left">İsim Soyisim</th>
+                                <td class="text-left">{{profile.user_name}}</td>
+                            </tr>
+                            <tr>
+                                <th class="text-left">Email</th>
+                                <td class="text-left">{{profile.user_email}}</td>
+                            </tr>
+                            <tr>
+                                <th class="text-left">Telefon</th>
+                                <td class="text-left">{{profile.phone}}</td>
+                            </tr>
+                            <tr>
+                                <th class="text-left">Adres</th>
+                                <td class="text-left">{{profile.address}}</td>
+                            </tr>
+                            <tr>
+                                <th class="text-left">Şehir</th>
+                                <td class="text-left">{{profile.city}}</td>
+                            </tr>
+                            <tr>
+                                <th class="text-left">Ülke</th>
+                                <td class="text-left">{{profile.country}}</td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+{% endblock %}
+
+
+{% include 'footer.html' %}
+
+
+
+{% block footer %} {% endblock %}

@@ -61,17 +61,19 @@
 
                 <li class="nav-item"><a href="/referanslar" class="nav-link">Referanslar</a></li>
                 <li class="nav-item"><a href="/hakkimizda" class="nav-link">Hakkımızda</a></li>
-                <li class="nav-item"><a href="/evler" class="nav-link">Evler</a></li>
                 <li class="nav-item"><a href="/iletisim" class="nav-link">İletişim</a></li>
 
                 <li class="nav-item dropdown">
                     {% if user.id is not None %}
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">{{ user.first_name }}Giriş</a>
+                            <div class="header-btns-icon">
+                                <img src="{{ request.user.profile.image.url}}">
+                            </div>
                     {% else %}
                         <a href="/login/" class="text-uppercase">Login</a> / <a href="/signup/" class="text-uppercase">SignUp</a>
                     {% endif %}
             <ul class="dropdown-menu">
-                <li><a  href="#">Hesabım</a></li>
+                <li><a  href="/user">Hesabım</a></li>
                 <li><a  href="#">Yorumlar</a></li>
                 <li><a href="#"><span class="icon-user"></span>Giriş Yap</a></li>
                 <li><a href="/logout/"><span class="icon-pencil"></span> Çıkış Yap</a></li>

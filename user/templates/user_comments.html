@@ -1,0 +1,63 @@
+{% extends "homebase.html" %}
+
+{% block title %} House Comments {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}'/>{% endblock %}
+
+
+
+{% block content %}
+
+
+    <!-- bradcam_area_start -->
+    <div class="bradcam_area breadcam_bg overlay2">
+        <h3></h3>
+    </div>
+    <!-- bradcam_area_end -->
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    {% include "user_panel.html" %}
+                </div>
+                <div class="col-lg-9">
+                    <h3 class="contact-title">User Comments</h3>
+                    <table class="progress-table">
+                        <tr>
+                            <th class="text_left">House</th>
+                            <th class="text_left">Rate</th>
+                            <th class="text_left">Subject</th>
+                            <th class="text_left">Comment</th>
+                            <th class="text_left">Status</th>
+                            <th class="text_left">Date</th>
+                            <th class="text_left">Detail</th>
+                        </tr>
+                        {% for rs in comments %}
+                            <tr>
+                                <td class="text-left">
+                                    <a href="/house/{{ rs.house_id }}/{{ rs.house.slug }}">
+                                        <strong>{{ rs.house.title }}</strong>
+                                    </a>
+                                </td>
+                                <td class="text-left">{{ rs.rate }}</td>
+                                <td class="text-left">{{ rs.subject }}</td>
+                                <td class="text-left">{{ rs.comment }}</td>
+                                <td class="text-left">{{ rs.status }}</td>
+                                <td class="text-left">{{ rs.create_at }}</td>
+                                <td class="text-left"><a class="genric-btn danger circle"
+                                                         href="/user/deletecomment/{{ rs.id }}"
+                                                         onclick="return confirm('Will be Delete ! Are you sure?')">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ contact section end ================= -->
+{% endblock %}

@@ -13,7 +13,8 @@
                 <div class="col-md-12 search-wrap">
                     <form action="/search/" method="post">
                         {% csrf_token %}
-                        <input name="query" class="input search-input" type="text" id="query" placeholder="Ne arıyorsunuz?">
+                        <input name="query" class="input search-input" type="text" id="query"
+                               placeholder="Ne arıyorsunuz?">
                         <button class="search-btn"><i class="primary-btn add-to-cart"></i>ARA</button>
                     </form>
                 </div>
@@ -21,7 +22,6 @@
         </div>
     </div>
 </div>
-
 
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -45,12 +45,14 @@
                         {% recursetree category %}
 
                             {% if node.is_leaf_node %}
-                                <li><a class="dropdown-item" href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a></li>
+                                <li><a class="dropdown-item"
+                                       href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a></li>
                             {% endif %}
 
                             {% if not node.is_leaf_node %}
                                 <li><a class="dropdown-item dropdown-toggle" href="#"> {{ node.title }} </a>
-                                    <ul class="submenu dropdown-menu">{{ children }}</ul></li>
+                                    <ul class="submenu dropdown-menu">{{ children }}</ul>
+                                </li>
 
                             {% endif %}
 
@@ -65,20 +67,35 @@
 
                 <li class="nav-item dropdown">
                     {% if user.id is not None %}
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">{{ user.first_name }}Giriş</a>
-                            <div class="header-btns-icon">
-                                <img src="{{ request.user.profile.image.url}}">
-                            </div>
+                        <a class="nav-link dropdown-toggle" href="#"
+                           data-toggle="dropdown">{{ user.first_name }}</a>
+
+                        <ul class="dropdown-menu">
+                        <li><a href="/user"><span class="icon-user"></span>Hesabım</a></li>
+                        <li><a href="#"><span class="icon-pencil"></span>Yorumlar</a></li>
+                        <li><a href="/logout/"> Çıkış Yap</a>
+                        </li>
+
+
+                    </ul>
+
                     {% else %}
-                        <a href="/login/" class="text-uppercase">Login</a> / <a href="/signup/" class="text-uppercase">SignUp</a>
+                        <a class="nav-link dropdown-toggle" href="#"
+                           data-toggle="dropdown">Giriş</a>
+                        <ul class="dropdown-menu">
+                        <li><a href="/login/" class="text-uppercase">Login</a></li>
+                        <li><a href="/signup/" class="text-uppercase">SignUp</a></li>
+                        </ul>
                     {% endif %}
-            <ul class="dropdown-menu">
-                <li><a  href="/user">Hesabım</a></li>
-                <li><a  href="#">Yorumlar</a></li>
-                <li><a href="#"><span class="icon-user"></span>Giriş Yap</a></li>
-                <li><a href="/logout/"><span class="icon-pencil"></span> Çıkış Yap</a></li>
 
-
+                </li>
+                {% if user.id is not None %}
+                    <li class="nav-item">
+                        <div class="nav-link">
+                            <img height="40" src="{{ user.userprofile.image.url }}">
+                        </div>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>

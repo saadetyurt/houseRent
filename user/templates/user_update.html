@@ -1,0 +1,51 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{ profile.user_name }} Profile {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}'/>{% endblock %}
+
+
+
+{% block content %}
+
+
+    <!-- bradcam_area_start -->
+    <div class="bradcam_area breadcam_bg overlay2">
+        <h3>User Update</h3>
+    </div>
+    <!-- bradcam_area_end -->
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    {% include "user_panel.html" %}
+                </div>
+                <div class="col-lg-7">
+                    <div class="section_title">
+                        <h3 class="contact-title">User Update</h3>
+                    </div>
+                    <div class="section-content">
+                        <div class="media">
+                            <img src="{{ user.userprofile.image.url }} " style="border-radius :45px; height:100px">
+                        </div>
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                {{ user_form.as_p }}
+                                {{ profile_form.as_p }}
+                            </fieldset>
+                            <div class="form-group">
+                                <button class="btn btn-outline-info" type="submit">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ contact section end ================= -->
+{% endblock %}

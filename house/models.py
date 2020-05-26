@@ -1,8 +1,9 @@
+from ckeditor.widgets import CKEditorWidget
 from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput, Select, FileInput
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -73,6 +74,19 @@ class House(models.Model):
 
     def get_absolute_url(self):
         return reverse('house_detail', kwargs={'slug': self.slug})
+class HouseForm(ModelForm):
+    class Meta:
+        model = House
+        fields = ['category', 'title', 'slug', 'keywords', 'description', 'image', 'detail']
+        widgets = {
+            'title': TextInput(attrs={'class': 'input', 'placeholder': 'title'}),
+            'slug': TextInput(attrs={'class': 'input', 'placeholder': 'slug'}),
+            'keywords': TextInput(attrs={'class': 'input', 'placeholder': 'keywords'}),
+            'description': TextInput(attrs={'class': 'input', 'placeholder': 'description'}),
+            'category': Select(attrs={'class': 'input', 'placeholder': 'type'}, choices=Category.objects.all()),
+            'image': FileInput(attrs={'class': 'input', 'placeholder': 'image'}),
+            'detail': CKEditorWidget(),
+        }
 
 class Images(models.Model):
     house = models.ForeignKey(House, on_delete=models.CASCADE)
@@ -85,6 +99,11 @@ class Images(models.Model):
     def image_tag(self):
         return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
     image_tag.short_description = 'Image'
+
+class ImageForm(ModelForm):
+    class Meta:
+        model = Images
+        fields = ['title', 'image']
 
 class Comment(models.Model):
     STATUS = (

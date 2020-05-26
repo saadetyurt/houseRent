@@ -33,17 +33,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 ftco-animate">
-                      {% include "user_panel.html" %}
+                    {% include "user_panel.html" %}
                 </div>
 
                 <div class="col-lg-8 ftco-animate">
                     <div class="sidebar-box ftco-animate">
-                   <h3>Kullanıcı Bİlgileri</h3>
+                        <h3>Kullanıcı Bİlgileri</h3>
                         <table class="shopping-house-table table">
-
-                            <tr>
-                                <th class="text-left"></th>
-                                <td class="thumb"><img src="{{ profile.image.url }}"></td>
+                            <tr class="table-row">
+                                <th class="text_center">
+                                    <a href="/user/update" class="btn py-3 px-4 btn-primary">Update Profile</a>
+                                    <a href="/user/password" class="btn py-3 px-4 btn-primary">Change Password</a>
+                                     <td class="text-center"><img src="{{ profile.image.url }}"></td>
+                                </th>
                             </tr>
                             <tr>
                                 <th class="text-left">İsim Soyisim</th>
@@ -51,7 +53,7 @@
                             </tr>
                             <tr>
                                 <th class="text-left">Email</th>
-                                <td class="text-left">{{profile.user_email}}</td>
+                                <td class="text-left">{{profile.email}}</td>
                             </tr>
                             <tr>
                                 <th class="text-left">Telefon</th>
@@ -69,7 +71,7 @@
                                 <th class="text-left">Ülke</th>
                                 <td class="text-left">{{profile.country}}</td>
                             </tr>
-                            
+
                         </table>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from home.forms import SearchForm, SignUpForm
-from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile
+from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile, FAQ
 from house.models import Category, House, Images, Comment
 
 
@@ -15,7 +15,7 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = House.objects.all()[:6]
     category = Category.objects.all()
-    dayhouses = House.objects.all()[:4]
+    dayhouses = House.objects.all()[:6]
     randomhouses = House.objects.all().order_by('?')[:4]
 
     context = {'setting': setting,
@@ -69,7 +69,11 @@ def iletisim(request):
 def category_houses(request, id,slug):
     category = Category.objects.all()
     categorydata = Category.objects.get(pk=id)
-    houses = House.objects.filter(category_id=id)
+    if slug == "child":
+        houses = House.objects.filter(category_id=id)
+    else:
+        houses = House.objects.filter(category__parent_id=id)
+
     context = {'houses' : houses,
                'categorydata': categorydata,
                'category': category
@@ -133,6 +137,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, "Hoşgeldiniz")
             return HttpResponseRedirect('/')
         else:
             messages.warning(request, "Login Hatası ! Kullanıcı adı ya da şifre yanlış")
@@ -171,3 +176,14 @@ def signup_view(request):
         'form': form,
     }
     return render(request, 'signup.html', context)
+
+def faq(request):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    faq = FAQ.objects.all().order_by('ordernumber')
+    context = {
+        'category': category,
+        'setting': setting,
+        'faq': faq,
+    }
+    return render(request, 'faq.html', context)

@@ -1,0 +1,81 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{ profile.user_name }} Profile {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}'/>{% endblock %}
+
+
+
+{% block content %}
+    {% load static %}
+
+
+    <!-- bradcam_area_start -->
+    <div class="bradcam_area breadcam_bg overlay2">
+        <h3></h3>
+    </div>
+    <!-- bradcam_area_end -->
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    {% include "user_panel.html" %}
+                </div>
+                <div class="col-lg-9">
+                    <h3 class="contact-title">User Houses<a class="genric-btn danger circle" href="/user/addhouse/">Add
+                        House</a>
+                    </h3>
+                    <table class="table table-bordered table-condensed">
+                        <tr>
+                            <th class="text_left">Image</th>
+                            <th class="text_left">Title</th>
+                            <th class="text_left">Category</th>
+                            <th class="text_left">Gallery</th>
+                            <th class="text_left">Date</th>
+                            <th class="text_left">Detail</th>
+                        </tr>
+                        {% for rs in houses %}
+                            <tr>
+
+                                <td class="text-left">
+                                    <a href="/house/{{ rs.id }}/{{ rs.slug }}">
+                                        <img src="{{ rs.image.url }}" style="height: 30px">
+                                    </a>
+                                </td>
+                                <td class="text-left">
+                                    <a href="/house/{{ rs.id }}/{{ rs.slug }}">
+                                        {{ rs.title }}
+                                    </a>
+                                </td>
+                                <td class="text-left">{{ rs.category }}</td>
+
+
+                                <td class="text-left">
+                                    <a href="javascript:;"
+                                       onclick="window.open('/user/houseaddimage/{{ rs.id }}', 'galley', 'height=600, width=800, top=50, left=150')">
+                                        <img src="{% static '/images/gallery.png' %}" style="height: 50px;">
+                                    </a>
+                                </td>
+
+
+                                <td class="text-left">{{ rs.create_at }}</td>
+                                <td class="text-left"><a class="genric-btn danger circle"
+                                                         href="/user/houseedit/{{ rs.id }}">Edit</a>
+                                </td>
+                                <td class="text-left"><a onclick="return confirm('Will be Delete ! Are you sure?')"
+                                                         class="genric-btn danger circle"
+                                                         href="/user/housedelete/{{ rs.id }}">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ contact section end ================= -->
+{% endblock %}

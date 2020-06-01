@@ -36,7 +36,7 @@
 
                         <div class="properties">
 
-                            <a href="property-single.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ rs.image.url }});">
+                            <a href="/house/{{ rs.id }}/{{ rs.slug }}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ rs.image.url }});">
                                 <div class="icon d-flex justify-content-center align-items-center">
                                     <span class="icon-search2"></span>
                                 </div>
@@ -45,8 +45,8 @@
                                 <span class="status sale">{{rs.description}}</span>
                                 <div class="d-flex">
                                     <div class="one">
-                                        <h3><a href="property-single.html">{{rs.address}}</a></h3>
-                                        <p>Apartment</p>
+                                        <h3><a href="/houses">{{rs.address}}</a></h3>
+                                        <p>{{ rs.title }}</p>
                                     </div>
                                     <div class="two">
                                         <span class="price">{{ rs.price }}</span>
@@ -55,9 +55,8 @@
                                 <p>{{ rs.detail|safe }}</p>
                                 <hr>
                                 <p class="bottom-area d-flex">
-                                    <span><i class="flaticon-selection"></i> 250sqft</span>
-                                    <span class="ml-auto"><i class="flaticon-bathtub"></i> 3</span>
-                                    <span><i class="flaticon-bed"></i> 4</span>
+                                    <span><i class="flaticon-selection"></i>{{ rs.m2 }}</span>
+                                    <span class="ml-auto"><i class="flaticon-house"></i> {{ rs.room }}</span>
                                 </p>
                             </div>
 

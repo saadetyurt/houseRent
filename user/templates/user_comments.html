@@ -17,7 +17,13 @@
         <h3></h3>
     </div>
     <!-- bradcam_area_end -->
-
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" roles="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
     <section class="contact-section">
         <div class="container">
             <div class="row">
@@ -26,7 +32,7 @@
                 </div>
                 <div class="col-lg-9">
                     <h3 class="contact-title">User Comments</h3>
-                    <table class="progress-table">
+                    <table class="table table-bordered table-condensed">
                         <tr>
                             <th class="text_left">House</th>
                             <th class="text_left">Rate</th>

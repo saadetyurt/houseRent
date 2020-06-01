@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 import house
 import user
 from house.models import Category, Comment, HouseForm, House, ImageForm, Images
-from home.models import UserProfile
+from home.models import UserProfile, Setting
 from user.forms import UserUpdateForm, ProfileUpdateForm
 
 
@@ -75,10 +75,11 @@ def change_password(request):
 def comments(request):
     category = Category.objects.all()
     current_user = request.user
+    setting = Setting.objects.get(pk=1)
     comments = Comment.objects.filter(user_id=current_user.id)
     context = {
         'category': category,
-        'comments': comments,
+        'comments': comments, 'setting': setting,
     }
 
     return render(request, 'user_comments.html', context)
@@ -123,6 +124,7 @@ def addhouse(request):
         }
         return render(request, 'user_addhouse.html', context)
 
+
 @login_required(login_url='/login')
 def houseedit(request, id):
     house = House.objects.get(id=id)
@@ -164,6 +166,7 @@ def housedelete(request, id):
     messages.success(request, 'House deleted..')
     return HttpResponseRedirect('/user/houses')
 
+
 def houseaddimage(request, id):
     if request.method == 'POST':
         lasturl = request.META.get('HTTP_REFERER')
@@ -189,4 +192,3 @@ def houseaddimage(request, id):
             'form': form,
         }
         return render(request, 'houseImage_gallery.html', context)
-

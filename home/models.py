@@ -62,10 +62,10 @@ class ContactFormu(ModelForm):
         model = ContactFormMessage
         fields = ['name', 'email', 'subject', 'message']
         widgets = {
-            'name': TextInput(attrs={'class': 'input', 'placeholder': 'Name & Surname'}),
-            'email': TextInput(attrs={'class': 'input', 'placeholder': 'Email'}),
-            'subject': TextInput(attrs={'class': 'input', 'placeholder': 'Email Address'}),
-            'message': Textarea(attrs={'class': 'input', 'placeholder': 'Your Message', 'rows': '5'}),
+            'name': TextInput(attrs={'class=table table-bordered table-condensed': 'input', 'placeholder': 'Name & Surname'}),
+            'email': TextInput(attrs={'class=table table-bordered table-condensed': 'input', 'placeholder': 'Email'}),
+            'subject': TextInput(attrs={'class=table table-bordered table-condensed': 'input', 'placeholder': 'Email Address'}),
+            'message': Textarea(attrs={'class=table table-bordered table-condensed': 'input', 'placeholder': 'Your Message', 'rows': '5'}),
         }
 
 class UserProfile(models.Model):
@@ -92,3 +92,19 @@ class UserProfileForm(ModelForm):
     class Meta:
         model = UserProfile
         fields = ['phone', 'address', 'city', 'country', 'image']
+
+
+class FAQ(models.Model):
+    STATUS = (
+        ('True', 'Evet'),
+        ('False', 'Hayır'),
+    )
+    ordernumber = models.IntegerField()
+    question = models.CharField(max_length=150)
+    answer = models.TextField()
+    status = models.CharField(max_length=10, choices=STATUS)
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.question

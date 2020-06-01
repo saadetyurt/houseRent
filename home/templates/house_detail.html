@@ -48,7 +48,7 @@
                                 <span class="loc"><a href="#"><i class="icon-map"></i> {{house.address}}</a></span>
                             </p>
                             <p>{{ house.detail |safe}}
-                            <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                     <ul class="comment-list">
                         <li class="comment">
                             <div class="comment-body">
-                                <h3>{{ user.first.name }}</h3>
+                                <h3>{{ rs.user.first_name }}</h3>
                                 <div class="fa fa-clock-o">{{ rs.create_up }}</div>
                                 <p>{{ rs.comment }}<p><a href="#" class="reply">Reply</a></p>
                             </div>
@@ -69,12 +69,12 @@
                 </div>
 
             </div>
-        </div>
+
         <div class="comment-form-wrap pt-5">
             <h3 class="mb-5">Yorum Bırakın :)</h3>
             {% if messages %}
                 {% for message in messages %}
-                    <div class="alert-alert-{{ message.tags }}" roles="alert">
+                    <div class="alert alert-{{ message.tags }}" roles="alert">
                         {{ message }}
                     </div>
                 {% endfor %}

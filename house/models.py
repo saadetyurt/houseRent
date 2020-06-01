@@ -49,12 +49,13 @@ class House(models.Model):
         ('True', 'Evet'),
         ('False' , 'Hayır'),
     )
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE) #relation with Category table
     title = models.CharField(max_length=150)
     keywords = models.CharField(blank=True,max_length=255)
     description = models.CharField(blank=True,max_length=255)
     address = models.CharField(blank=True,max_length=255)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/',blank=True)
     price = models.FloatField(blank=True,null=True)
     detail = RichTextUploadingField()
     slug = models.SlugField(null=False, unique=True)

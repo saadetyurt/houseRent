@@ -1,0 +1,58 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{ profile.user_name }} Profile {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}'/>
+    {% load static %}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+
+    <!-- bradcam_area_start -->
+    <div class="bradcam_area breadcam_bg overlay2">
+        <h3>User Houses</h3>
+    </div>
+    <!-- bradcam_area_end -->
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    {% include "user_panel.html" %}
+                </div>
+                <div class="col-lg-9">
+                    <h3 class="contact-title">Add House</h3>
+                    <div class="section-content">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                {{ form.media }}
+                                {{ form.as_p }}
+                            </fieldset>
+                            <div class="form-group">
+                                <button class="genric-btn danger circle" type="submit">SAVE</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ================ contact section end ================= -->
+{% endblock %}
